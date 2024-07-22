@@ -1,0 +1,47 @@
+def calcular_media_turma():
+  """
+  Função para calcular a média de notas dos alunos e exibir informações individuais e da turma.
+
+  Retorna:
+    None
+  """
+
+  # Inicialização de variáveis
+  numero_alunos = int(input("Digite o número de alunos: "))
+  soma_notas_turma = 0
+
+  # Loop para cada aluno
+  for aluno in range(1, numero_alunos + 1):
+    nome_aluno = input(f"Digite o nome do {aluno}º aluno: ")
+    nota1 = float(input(f"Digite a primeira nota de {nome_aluno}: "))
+    nota2 = float(input(f"Digite a segunda nota de {nome_aluno}: "))
+    nota3 = float(input(f"Digite a terceira nota de {nome_aluno}: "))
+
+    # Cálculo da média do aluno
+    media_aluno = (nota1 + nota2 + nota3) / 3
+
+    # Armazenamento da soma das notas para a média da turma
+    soma_notas_turma += media_aluno
+
+    # Verificação de aprovação/reprovação
+    if media_aluno >= 7.0:
+      situacao_aluno = "Aprovado"
+    else:
+      situacao_aluno = "Reprovado"
+
+    # Exibição das informações do aluno
+    print(f"\nNome do Aluno: {nome_aluno}")
+    print(f"Nota 1: {nota1:.1f}")
+    print(f"Nota 2: {nota2:.1f}")
+    print(f"Nota 3: {nota3:.1f}")
+    print(f"Média: {media_aluno:.1f}")
+    print(f"Situação: {situacao_aluno}")
+
+  # Cálculo da média geral da turma
+  media_geral_turma = soma_notas_turma / numero_alunos
+
+  # Exibição da média geral da turma
+  print(f"\nMédia geral da turma: {media_geral_turma:.1f}")
+
+# Chamada da função principal
+calcular_media_turma()
